@@ -4,10 +4,10 @@ class DATABASE_CONFIG {
 	public $default = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
-		'host' => 'localhost',
-		'login' => 'root',
-		'password' => 'root',
-		'database' => 'app_install',
+		'host' => 'jace.greyback.net',
+		'login' => 'inmanprojects',
+		'password' => 'g0t0el',
+		'database' => 'inmanprojects',
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);
