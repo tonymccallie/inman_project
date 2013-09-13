@@ -19,6 +19,54 @@ body {
 	background: @gray;
 }
 
+.radio {
+	[type=radio] {
+	    display: none;
+	}
+	[type=radio] + label:before {
+	    content: "\f096\0000a0";
+	}
+	[type=radio]:checked + label:before {
+	    content: "\f046\0000a0";
+	}
+	
+	padding-left: 0;
+	margin-bottom: 20px;
+	label {
+		font-size: 1em;
+		&.icon- {
+			margin-right: 10px;
+		}
+	}
+	.error-message {
+		margin-top: 10px;
+	}
+}
+
+.checkbox {
+	[type=checkbox] {
+	    display: none;
+	}
+	[type=checkbox] + label:before {
+	    content: "\f096\0000a0";
+	}
+	[type=checkbox]:checked + label:before {
+	    content: "\f046\0000a0";
+	}
+	
+	padding-left: 0;
+	margin-bottom: 20px;
+	label {
+		font-size: 1em;
+		&.icon- {
+			margin-right: 10px;
+		}
+	}
+	.error-message {
+		margin-top: 10px;
+	}
+}
+
 #footer {
 	padding: 20px 0 10px; 
 	background: @grayDark;

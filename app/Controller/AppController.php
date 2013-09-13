@@ -2,7 +2,7 @@
 App::uses('Controller', 'Controller');
 App::uses('User','Model');
 class AppController extends Controller {
-	public $helpers = array('Time','Html','Form','Session');
+	public $helpers = array('Time','Html','Form','Session','ExtendedForm');
 
 	public $components = array(
 		'Authsome' => array('model' => 'User'),
