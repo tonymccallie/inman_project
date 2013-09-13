@@ -1,8 +1,6 @@
 <div class="span12">
-	<h1>Configuration</h1>
-	<ul>
-		<li>Normal CakePHP configs: core.php, database.php</li>
-		<li>Change email address in /app/Controller/Component/common.php</li>
-		<li>Install /app/Config/database_init.sql</li>
-	</ul>
+	<div class="well">
+		<h1>Welcome</h1>
+		<p>This is the future home of the Anthony Inman Construction Project Manager</p>
+	</div>
 </div>
