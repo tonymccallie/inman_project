@@ -1,8 +1,8 @@
 <script type="text/javascript">
 /* <![CDATA[ */
 var intCount = 1000;
-var contractors = <?php echo json_encode($contractors) ?>;
-var subcontractors = <?php echo json_encode($subcontractors) ?>;
+var contractors = '<?php echo str_replace("\n",'',$this->Form->input('DailyContractor.REPLACE.contractor_id',array('label'=>false, 'options'=>$contractors,'empty' => true,'class'=>'span12'))); ?>';
+var subcontractors = '<?php echo str_replace("\n",'',$this->Form->input('DailySubcontractor.REPLACE.subcontractor_id',array('label'=>false, 'options'=>$subcontractors,'empty' => true,'class'=>'span12'))); ?>';
 $(document).ready(function() {
 	$('.del_row').on('click',function() {
 		alert('me');
@@ -14,15 +14,7 @@ $(document).ready(function() {
 	$('#add_contractor').click(function() {
 		html =  '\
 		<div id="contractor'+intCount+'" class="row-fluid">\
-			<div class="span4">\
-				<div class="input select">\
-					<select name="data[DailyContractor]['+intCount+'][contractor_id]" class="span12" id="DailyContractor0ContractorId">\
-						<option value=""></option>\
-						<option value="2">Barnett Paving</option>\
-						<option value="1">Scales Concrete Construction</option>\
-					</select>\
-				</div>\
-			</div>\
+			<div class="span4">'+contractors.replace('REPLACE',intCount)+'</div>\
 			<div class="span8">\
 				<div class="input-append span12">\
 					<input name="data[DailyContractor]['+intCount+'][equipment]" class="span12" type="text" value="" id="DailyContractor0Equipment"/>\
@@ -38,15 +30,7 @@ $(document).ready(function() {
 	$('#add_subcontractor').click(function() {
 		html =  '\
 		<div id="contractor'+intCount+'" class="row-fluid">\
-			<div class="span4">\
-				<div class="input select">\
-					<select name="data[DailySubcontractor]['+intCount+'][subcontractor_id]" class="span12" id="DailySubcontractor0SubcontractorId">\
-						<option value=""></option>\
-						<option value="1">L&amp;M Paving</option>\
-						<option value="2">Rodriguez Engineering</option>\
-					</select>\
-				</div>\
-			</div>\
+			<div class="span4">'+subcontractors.replace('REPLACE',intCount)+'</div>\
 			<div class="span1">\
 				<input name="data[DailySubcontractor]['+intCount+'][crew_size]" class="span12" type="number" value="" id="DailyContractor0Equipment"/>\
 			</div>\
