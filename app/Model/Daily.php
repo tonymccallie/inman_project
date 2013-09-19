@@ -7,6 +7,15 @@ class Daily extends AppModel {
 		'Project','User'
 	);
 	
+	public $hasMany = array(
+		'DailyContractor' => array(
+			'dependent' => true //true = delete child records on delete
+		),
+		'DailySubcontractor' => array(
+			'dependent' => true //true = delete child records on delete
+		),
+	);
+	
 	public $hasAndBelongsToMany = array(
 		'Contractor','Subcontractor'
 	);
