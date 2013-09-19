@@ -59,15 +59,6 @@ class DailiesController extends AppController {
 					'DailyContractor' => array(),
 					'DailySubcontractor' => array(),
 				);
-				$this->request->data['DailyContractor'][] = array(
-					'contractor_id' => '',
-					'equipment' => '',
-				);
-				$this->request->data['DailySubcontractor'][] = array(
-					'subcontractor_id' => '',
-					'crew_size' => '',
-					'equipment' => '',
-				);
 			}
 			
 			//Weather
