@@ -62,7 +62,7 @@
 
 				<div class="nav-collapse collapse pull-right">
 					<ul id="menu" class="nav">
-						<li class="active"><?php echo $this->Html->link('Home','/') ?></li>
+						<li class=""><?php echo $this->Html->link('Home','/') ?></li>
 						<?php if(Authsome::get('Role.name') == 'Admin'): ?>
 						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="admin_dropdown">Admin <b class="caret"></b></a>
 							<ul class="dropdown-menu">
