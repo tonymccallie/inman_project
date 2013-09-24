@@ -1,7 +1,10 @@
 <div class="span12">
 	<div class="well">
 		<h1>Welcome</h1>
-		<p>Click belowto create a new report</p>
-		<?php echo $this->Html->link('New Report','/dailies/add',array('class' => 'btn btn-large btn-primary')) ?>
+		<p>Click below to create a new report</p>
+		<div class="btn-group">
+			<?php echo $this->Html->link('New Daily Report','/dailies/add',array('class' => 'btn btn-large btn-primary')) ?>
+			<?php echo $this->Html->link('New OSHA Report','#',array('class' => 'btn btn-large btn-primary')) ?>
+		</div>
 	</div>
 </div>

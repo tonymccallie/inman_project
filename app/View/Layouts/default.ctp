@@ -47,7 +47,7 @@
 </head>
 
 <body>
-	<div id="header" class="navbar navbar-inverse navbar-fixed-top">
+	<div id="header" class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container-fluid">
 				<!-- Mobile Menu Button -->
@@ -58,10 +58,10 @@
 				</button>
 				<!-- /Mobile Menu Button -->
 
-				<?php echo $this->Html->link('<i class="icon-wrench"></i> Anthony Inman Projects','/',array('escape'=>false,'class'=>'brand')) ?>
+				<?php echo $this->Html->link($this->Html->image('logo.png'),'/',array('escape'=>false,'class'=>'brand')) ?>
 
 				<div class="nav-collapse collapse pull-right">
-					<ul class="nav">
+					<ul id="menu" class="nav">
 						<li class="active"><?php echo $this->Html->link('Home','/') ?></li>
 						<?php if(Authsome::get('Role.name') == 'Admin'): ?>
 						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="admin_dropdown">Admin <b class="caret"></b></a>
