@@ -57,7 +57,6 @@ $(document).ready(function() {
 <div class="">
 	<?php 
 		echo $this->Form->create();
-			echo $this->Form->input('report_date',array('type'=>'hidden','value'=>date('Y-m-d')));
 			echo $this->Form->input('project_id',array('class'=>'span12','type'=>'hidden','value'=>$project['Project']['id']));
 	?>
 	<div class="row-fluid">
