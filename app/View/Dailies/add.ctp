@@ -51,7 +51,7 @@ $(document).ready(function() {
 </script>
 <div class="admin_header">
 	<h3>
-		<i class="icon-edit"></i> Daily Project Report
+		<i class="icon-edit"></i> Daily Project Report: <?php echo $project['Project']['title'] ?>
 	</h3>
 </div>
 <div class="">
@@ -60,6 +60,11 @@ $(document).ready(function() {
 			echo $this->Form->input('report_date',array('type'=>'hidden','value'=>date('Y-m-d')));
 			echo $this->Form->input('project_id',array('class'=>'span12','type'=>'hidden','value'=>$project['Project']['id']));
 	?>
+	<div class="row-fluid">
+		<div class="span6">
+			<?php echo $this->Form->input('report_date',array('class'=>'span4')); ?>
+		</div>
+	</div>
 	<div class="row-fluid">
 		<div class="span2">
 			<?php

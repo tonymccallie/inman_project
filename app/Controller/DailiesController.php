@@ -55,9 +55,19 @@ class DailiesController extends AppController {
 				}
 			} else {
 				$this->request->data = array(
-					'Daily' => array(),
-					'DailyContractor' => array(),
-					'DailySubcontractor' => array(),
+					'Daily' => array(
+						'testing' => 'None',
+						'surveying' => 'None',
+						'accidents' => 'None',
+						'directives' => 'None',
+						'progress_notes' => 'None',
+					),
+					'DailyContractor' => array(
+						array(),
+					),
+					'DailySubcontractor' => array(
+						array(),
+					),
 				);
 			}
 			
