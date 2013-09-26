@@ -27,6 +27,23 @@ class DailiesController extends AppController {
 //die(debug($project));
 		if ($this->request->is('post')) {
 			$this->Daily->create();
+			
+			$pictures = array(
+				'picture_1','picture_2','picture_3','picture_4'
+			);
+			
+			foreach($pictures as $picture) {
+				if(!empty($this->request->data['Daily'][$picture]['name'])) {
+					$nameArray = explode('.', $this->request->data['Daily'][$picture]['name']);
+					$extension = strtolower($nameArray[count($nameArray)-1]);
+					$filename = Common::generateRandom().'.'.$extension;
+					move_uploaded_file($this->request->data['Daily'][$picture]['tmp_name'],WWW_ROOT.'uploads/' . $filename);
+					$this->request->data['Daily'][$picture] = $filename;
+				} else {
+					$this->request->data['Daily'][$picture] = '';
+				}
+			}
+
 			if ($this->Daily->saveAll($this->request->data)) {
 				$this->Session->setFlash('The daily has been saved','success');
 				$this->redirect('/dashboard');
@@ -42,7 +59,7 @@ class DailiesController extends AppController {
 				);
 				foreach($project['Daily'][0]['DailyContractor'] as $contractor) {
 					$this->request->data['DailyContractor'][] = array(
-						'contractor_id' => $contractor['contractor_id'],
+						'contractor_id' => $contractor['subcontractor_id'],
 						'equipment' => $contractor['equipment'],
 					);
 				}
@@ -92,8 +109,7 @@ class DailiesController extends AppController {
 			}
 			
 		}
-		$contractors = $this->Daily->Contractor->find('list');
-		$subcontractors = $this->Daily->Subcontractor->find('list');
+		$subcontractors = $this->Daily->DailySubcontractor->Subcontractor->find('list');
 		$this->set(compact('contractors','subcontractors','project'));
 	}
 	

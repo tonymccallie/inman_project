@@ -68,7 +68,6 @@
 							<ul class="dropdown-menu">
 								<li><?php echo $this->Html->link('Users','/admin/users') ?></li>
 								<li><?php echo $this->Html->link('Projects','/admin/projects') ?></li>
-								<li><?php echo $this->Html->link('Contractors','/admin/contractors') ?></li>
 								<li><?php echo $this->Html->link('Subcontractors','/admin/subcontractors') ?></li>
 								<li><?php echo $this->Html->link('Daily Reports','/admin/dailies') ?></li>
 							</ul>

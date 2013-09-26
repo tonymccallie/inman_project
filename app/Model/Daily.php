@@ -15,9 +15,5 @@ class Daily extends AppModel {
 			'dependent' => true //true = delete child records on delete
 		),
 	);
-	
-	public $hasAndBelongsToMany = array(
-		'Contractor','Subcontractor'
-	);
 }
 ?>

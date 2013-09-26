@@ -1,7 +1,6 @@
 <script type="text/javascript">
 /* <![CDATA[ */
 var intCount = 1000;
-var contractors = '<?php echo str_replace("\n",'',$this->Form->input('DailyContractor.REPLACE.contractor_id',array('label'=>false, 'options'=>$contractors,'empty' => true,'class'=>'span12'))); ?>';
 var subcontractors = '<?php echo str_replace("\n",'',$this->Form->input('DailySubcontractor.REPLACE.subcontractor_id',array('label'=>false, 'options'=>$subcontractors,'empty' => true,'class'=>'span12'))); ?>';
 $(document).ready(function() {
 	$('.del_row').on('click',function() {
@@ -14,7 +13,7 @@ $(document).ready(function() {
 	$('#add_contractor').click(function() {
 		html =  '\
 		<div id="contractor'+intCount+'" class="row-fluid">\
-			<div class="span4">'+contractors.replace('REPLACE',intCount)+'</div>\
+			<div class="span4">'+subcontractors.replace('REPLACE',intCount)+'</div>\
 			<div class="span8">\
 				<div class="input-append span12">\
 					<input name="data[DailyContractor]['+intCount+'][equipment]" class="span12" type="text" value="" id="DailyContractor0Equipment"/>\
@@ -56,7 +55,7 @@ $(document).ready(function() {
 </div>
 <div class="">
 	<?php 
-		echo $this->Form->create();
+		echo $this->Form->create('Daily', array('type' => 'file'));
 			echo $this->Form->input('project_id',array('class'=>'span12','type'=>'hidden','value'=>$project['Project']['id']));
 	?>
 	<div class="row-fluid">
@@ -71,16 +70,6 @@ $(document).ready(function() {
 			?>
 		</div>
 		<div class="span2">
-			<?php
-				echo $this->Form->input('precipitation_type',array('class'=>'span12','options'=>array(
-					'None'=>'None',
-					'Rain'=>'Rain',
-					'Sleet'=>'Sleet',
-					'Snow'=>'Snow'
-				)));
-			?>
-		</div>
-		<div class="span2">
 			<?php echo $this->Form->input('low',array('label'=>'Low Temp (F)','class'=>'span12')); ?>
 		</div>
 		<div class="span2">
@@ -91,6 +80,16 @@ $(document).ready(function() {
 		</div>
 		<div class="span2">
 			<?php echo $this->Form->input('precipitation_amt',array('label'=>'Precipitation Amt. (in)','class'=>'span12')); ?>
+		</div>
+		<div class="span2">
+			<?php
+				echo $this->Form->input('precipitation_type',array('class'=>'span12','options'=>array(
+					'None'=>'None',
+					'Rain'=>'Rain',
+					'Sleet'=>'Sleet',
+					'Snow'=>'Snow'
+				)));
+			?>
 		</div>
 	</div>
 	<div class="row-fluid">
@@ -104,7 +103,7 @@ $(document).ready(function() {
 	</div>
 	<div class="row-fluid">
 		<div class="span4">
-			<h6>Contractor</h6>
+			<h4>Subcontractor</h4>
 		</div>
 		<div class="span8">
 			<h6>Equipment</h6>
@@ -114,7 +113,7 @@ $(document).ready(function() {
 		<?php foreach($this->data['DailyContractor'] as $k => $contractor): ?>
 			<div id="contractor<?php echo $k ?>" class="row-fluid">
 				<div class="span4">
-					<?php echo $this->Form->input('DailyContractor.'.$k.'.contractor_id',array('label'=>false, 'options'=>$contractors,'empty' => true,'class'=>'span12')); ?>
+					<?php echo $this->Form->input('DailyContractor.'.$k.'.contractor_id',array('label'=>false, 'options'=>$subcontractors,'empty' => true,'class'=>'span12')); ?>
 				</div>
 				<div class="span8">
 					<div class="input-append span12">
@@ -132,7 +131,7 @@ $(document).ready(function() {
 	</div>
 	<div class="row-fluid">
 		<div class="span4">
-			<h6>Subcontractor</h6>
+			<h4>Subcontractor</h4>
 		</div>
 		<div class="span1">
 			<h6>Crew</h6>
@@ -162,6 +161,27 @@ $(document).ready(function() {
 	<div class="row-fluid">
 		<div class="span12">
 			<a href="#" id="add_subcontractor" class="btn"><i class="icon-plus"></i> Add Subcontractor</a>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span12">
+			<h4>Pictures</h4>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span6">
+			<?php echo $this->Form->input('picture_1',array('type'=>'file')); ?>
+		</div>
+		<div class="span6">
+			<?php echo $this->Form->input('picture_2',array('type'=>'file')); ?>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span6">
+			<?php echo $this->Form->input('picture_3',array('type'=>'file')); ?>
+		</div>
+		<div class="span6">
+			<?php echo $this->Form->input('picture_4',array('type'=>'file')); ?>
 		</div>
 	</div>
 	<div class="row-fluid">
