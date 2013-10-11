@@ -18,7 +18,6 @@ class DailiesController extends AppController {
 			'contain' => array(
 				'Daily' => array(
 					'limit' => 1,
-					'DailyContractor',
 					'DailySubcontractor'
 				),
 				
@@ -27,7 +26,7 @@ class DailiesController extends AppController {
 //die(debug($project));
 		if ($this->request->is('post')) {
 			$this->Daily->create();
-			
+
 			$pictures = array(
 				'picture_1','picture_2','picture_3','picture_4'
 			);
@@ -54,15 +53,8 @@ class DailiesController extends AppController {
 			if((!empty($this->request->params['named']['replicate']))&&(!empty($project['Daily'][0]))) {
 				$this->request->data = array(
 					'Daily' => array(),
-					'DailyContractor' => array(),
 					'DailySubcontractor' => array(),
 				);
-				foreach($project['Daily'][0]['DailyContractor'] as $contractor) {
-					$this->request->data['DailyContractor'][] = array(
-						'contractor_id' => $contractor['subcontractor_id'],
-						'equipment' => $contractor['equipment'],
-					);
-				}
 				foreach($project['Daily'][0]['DailySubcontractor'] as $contractor) {
 					$this->request->data['DailySubcontractor'][] = array(
 						'subcontractor_id' => $contractor['subcontractor_id'],
@@ -79,11 +71,10 @@ class DailiesController extends AppController {
 						'directives' => 'None',
 						'progress_notes' => 'None',
 					),
-					'DailyContractor' => array(
-						array(),
-					),
 					'DailySubcontractor' => array(
-						array(),
+						array(
+							'crew_size' => 0
+						),
 					),
 				);
 			}
@@ -136,7 +127,7 @@ class DailiesController extends AppController {
 			throw new NotFoundException(__('Invalid daily'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Daily->save($this->request->data)) {
+			if ($this->Daily->saveAll($this->request->data)) {
 				$this->Session->setFlash('The daily has been saved','success');
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -146,6 +137,8 @@ class DailiesController extends AppController {
 			$options = array('conditions' => array('Daily.' . $this->Daily->primaryKey => $id));
 			$this->request->data = $this->Daily->find('first', $options);
 		}
+		$subcontractors = $this->Daily->DailySubcontractor->Subcontractor->find('list');
+		$this->set(compact('subcontractors'));
 	}
 
 

@@ -8,9 +8,6 @@ class Daily extends AppModel {
 	);
 	
 	public $hasMany = array(
-		'DailyContractor' => array(
-			'dependent' => true //true = delete child records on delete
-		),
 		'DailySubcontractor' => array(
 			'dependent' => true //true = delete child records on delete
 		),

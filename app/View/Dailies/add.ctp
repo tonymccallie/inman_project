@@ -4,42 +4,31 @@ var intCount = 1000;
 var subcontractors = '<?php echo str_replace("\n",'',$this->Form->input('DailySubcontractor.REPLACE.subcontractor_id',array('label'=>false, 'options'=>$subcontractors,'empty' => true,'class'=>'span12'))); ?>';
 $(document).ready(function() {
 	$('.del_row').on('click',function() {
-		alert('me');
 		href = $(this).attr('href');
 		$(href).remove();
 		return false;
 	});
 	
-	$('#add_contractor').click(function() {
-		html =  '\
-		<div id="contractor'+intCount+'" class="row-fluid">\
-			<div class="span4">'+subcontractors.replace('REPLACE',intCount)+'</div>\
-			<div class="span8">\
-				<div class="input-append span12">\
-					<input name="data[DailyContractor]['+intCount+'][equipment]" class="span12" type="text" value="" id="DailyContractor0Equipment"/>\
-				</div>\
-			</div>\
-		</div>\
-		';
-		intCount++;
-		$('#contractor_list').append(html);
-		return false;
-	});
-	
 	$('#add_subcontractor').click(function() {
 		html =  '\
-		<div id="contractor'+intCount+'" class="row-fluid">\
-			<div class="span4">'+subcontractors.replace('REPLACE',intCount)+'</div>\
-			<div class="span1">\
-				<input name="data[DailySubcontractor]['+intCount+'][crew_size]" class="span12" type="number" value="" id="DailyContractor0Equipment"/>\
-			</div>\
-			<div class="span7">\
-				<div class="input-append span12">\
-					<input name="data[DailySubcontractor]['+intCount+'][equipment]" class="span12" type="text" value="" id="DailyContractor0Equipment"/>\
+		<div id="contractor'+intCount+'" >\
+			<div class="row-fluid">\
+				<div class="span4">'+subcontractors.replace('REPLACE',intCount)+'</div>\
+				<div class="span1">\
+					<input name="data[DailySubcontractor]['+intCount+'][crew_size]" class="span12" type="number" value="" id="DailyContractor0Equipment"/>\
+				</div>\
+				<div class="span7">\
+					<div class="input-append span12">\
+						<input name="data[DailySubcontractor]['+intCount+'][equipment]" class="span12" type="text" value="" id="DailyContractor0Equipment"/>\
+					</div>\
 				</div>\
 			</div>\
-		</div>\
-		';
+			<div class="row-fluid">\
+				<div class="span12">\
+					<label for="DailySubcontractor0WorkCompleted">Work Completed</label><input name="data[DailySubcontractor]['+intCount+'][work_completed]" class="span12" type="text" value="" id="DailyContractor0WorkCompleted"/>\
+				</div>\
+			</div>\
+		</div>';
 		intCount++;
 		$('#subcontractor_list').append(html);
 		return false;
@@ -105,34 +94,6 @@ $(document).ready(function() {
 		<div class="span4">
 			<h4>Subcontractor</h4>
 		</div>
-		<div class="span8">
-			<h6>Equipment</h6>
-		</div>
-	</div>
-	<div id="contractor_list">
-		<?php foreach($this->data['DailyContractor'] as $k => $contractor): ?>
-			<div id="contractor<?php echo $k ?>" class="row-fluid">
-				<div class="span4">
-					<?php echo $this->Form->input('DailyContractor.'.$k.'.contractor_id',array('label'=>false, 'options'=>$subcontractors,'empty' => true,'class'=>'span12')); ?>
-				</div>
-				<div class="span8">
-					<div class="input-append span12">
-						<?php echo $this->Form->input('DailyContractor.'.$k.'.equipment',array('label'=>false, 'class'=>'span11','type'=>'text','div'=>false)); ?>
-						<a href="#contractor<?php echo $k ?>" class="btn del_row"><i class="icon-trash"></i></a>
-					</div>
-				</div>
-			</div>
-		<?php endforeach ?>
-	</div>
-	<div class="row-fluid">
-		<div class="span12">
-			<a href="#" id="add_contractor" class="btn"><i class="icon-plus"></i> Add Contractor</a>
-		</div>
-	</div>
-	<div class="row-fluid">
-		<div class="span4">
-			<h4>Subcontractor</h4>
-		</div>
 		<div class="span1">
 			<h6>Crew</h6>
 		</div>
@@ -142,17 +103,24 @@ $(document).ready(function() {
 	</div>
 	<div id="subcontractor_list">
 		<?php foreach($this->data['DailySubcontractor'] as $k => $subcontractor): ?>
-			<div  id="subcontractor<?php echo $k ?>" class="row-fluid">
-				<div class="span4">
-					<?php echo $this->Form->input('DailySubcontractor.'.$k.'.subcontractor_id',array('label'=>false, 'options'=>$subcontractors,'empty' => true,'class'=>'span12')); ?>
+			<div id="subcontractor<?php echo $k ?>">
+				<div class="row-fluid">
+					<div class="span4">
+						<?php echo $this->Form->input('DailySubcontractor.'.$k.'.subcontractor_id',array('label'=>false, 'options'=>$subcontractors,'empty' => true,'class'=>'span12')); ?>
+					</div>
+					<div class="span1">
+						<?php echo $this->Form->input('DailySubcontractor.'.$k.'.crew_size',array('label'=>false, 'class'=>'span12','type'=>'number')); ?>
+					</div>
+					<div class="span7">
+						<div class="input-append span12">
+							<?php echo $this->Form->input('DailySubcontractor.'.$k.'.equipment',array('label'=>false, 'class'=>'span11','type'=>'text','div'=>false)); ?>
+							<a href="#subcontractor<?php echo $k ?>" class="btn del_row"><i class="icon-trash"></i></a>
+						</div>
+					</div>
 				</div>
-				<div class="span1">
-					<?php echo $this->Form->input('DailySubcontractor.'.$k.'.crew_size',array('label'=>false, 'class'=>'span12','type'=>'number')); ?>
-				</div>
-				<div class="span7">
-					<div class="input-append span12">
-						<?php echo $this->Form->input('DailySubcontractor.'.$k.'.equipment',array('label'=>false, 'class'=>'span11','type'=>'text','div'=>false)); ?>
-						<a href="#subcontractor<?php echo $k ?>" class="btn del_row"><i class="icon-trash"></i></a>
+				<div class="row-fluid">
+					<div class="span12">
+						<?php echo $this->Form->input('DailySubcontractor.'.$k.'.work_completed',array('class'=>'span12')); ?>
 					</div>
 				</div>
 			</div>
