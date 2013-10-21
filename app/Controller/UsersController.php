@@ -164,6 +164,19 @@ class UsersController extends AppController {
 		$this->User->recursive = 0;
 		$this->set('users', $this->paginate());
 	}
+	
+	public function admin_add() {
+		if ($this->request->is('post')) {
+			$this->User->create();
+			if ($this->User->save($this->request->data)) {
+				$this->Session->setFlash('The user has been saved','success');
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash('The user could not be saved. Please, try again.','error');
+			}
+		}
+		$this->set('roles',$this->User->Role->find('list'));
+	}
 
 	public function admin_edit($id = null) {
 		if (!$this->User->exists($id)) {
