@@ -15,7 +15,7 @@ $(document).ready(function() {
 			<div class="row-fluid">\
 				<div class="span4">'+subcontractors.replace('REPLACE',intCount)+'</div>\
 				<div class="span1">\
-					<input name="data[DailySubcontractor]['+intCount+'][crew_size]" class="span12" type="number" value="" id="DailyContractor0Equipment"/>\
+					<input name="data[DailySubcontractor]['+intCount+'][crew_size]" class="span12 crewsize" type="number" value="" onchange="javascript: updateWorkforce();" id="DailyContractor0Equipment"/>\
 				</div>\
 				<div class="span7">\
 					<div class="input-append span12">\
@@ -33,7 +33,25 @@ $(document).ready(function() {
 		$('#subcontractor_list').append(html);
 		return false;
 	});
+	
+	$('.crewsize').on('change',function() {
+		updateWorkforce();
+	});
+	
+	updateWorkforce();
 });
+
+var updateWorkforce = function() {
+	var intCrew = 0;
+	$('.crewsize').each(function(index,item){
+		var value = $(item).val();
+		if(value !== '') {
+			intCrew = intCrew + parseInt(value);
+		}
+	});
+	$('#DailyWorkforceTotal').val(intCrew);
+}
+
 
 /* ]]> */
 </script>
@@ -109,7 +127,7 @@ $(document).ready(function() {
 						<?php echo $this->Form->input('DailySubcontractor.'.$k.'.subcontractor_id',array('label'=>false, 'options'=>$subcontractors,'empty' => true,'class'=>'span12')); ?>
 					</div>
 					<div class="span1">
-						<?php echo $this->Form->input('DailySubcontractor.'.$k.'.crew_size',array('label'=>false, 'class'=>'span12','type'=>'number')); ?>
+						<?php echo $this->Form->input('DailySubcontractor.'.$k.'.crew_size',array('label'=>false, 'class'=>'span12 crewsize','type'=>'number')); ?>
 					</div>
 					<div class="span7">
 						<div class="input-append span12">
@@ -129,6 +147,11 @@ $(document).ready(function() {
 	<div class="row-fluid">
 		<div class="span12">
 			<a href="#" id="add_subcontractor" class="btn"><i class="icon-plus"></i> Add Subcontractor</a>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span12">
+			<?php echo $this->Form->input('workforce_total',array()); ?>
 		</div>
 	</div>
 	<div class="row-fluid">
