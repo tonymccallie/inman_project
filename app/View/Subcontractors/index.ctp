@@ -19,7 +19,7 @@
 		<tbody>
 		<?php foreach($subcontractors as $subcontractor): ?>
 			<tr>
-				<td><?php echo $this->Html->link($subcontractor['Subcontractor']['title'],array('action'=>'edit',$subcontractor['Subcontractor']['id'])) ?></td>
+				<td><?php echo $this->Html->link($subcontractor['Subcontractor']['title'],array('action'=>'view',$subcontractor['Subcontractor']['id'])) ?></td>
 			</tr>
 		<?php endforeach ?>
 		</tbody>

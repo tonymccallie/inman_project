@@ -1,8 +1,63 @@
 <?php
 App::uses('AppController', 'Controller');
 class SubcontractorsController extends AppController {
+
+	public function index() {
+		$this->Subcontractor->recursive = 0;
+		
+		$paginate = array(
+			'conditions' => array(),
+			'order' => array(
+				'Subcontractor.title' => 'asc'
+			),
+			'limit' => 20
+		);
+		
+		if(!empty($this->request->data['Subcontractor']['search'])) {
+			$paginate['conditions'][] = array('OR' => array(
+				'Subcontractor.title LIKE' => '%'.$this->request->data['Subcontractor']['search'].'%',
+				'Subcontractor.notes LIKE' => '%'.$this->request->data['Subcontractor']['search'].'%',
+				'Subcontractor.contact LIKE' => '%'.$this->request->data['Subcontractor']['search'].'%',
+				'Subcontractor.city LIKE' => '%'.$this->request->data['Subcontractor']['search'].'%',
+			));
+		}
+		
+		$this->paginate = $paginate;
+		
+		$this->set('subcontractors', $this->paginate());
+	}
+
+	public function view($id = null) {
+		if (!$this->Subcontractor->exists($id)) {
+			throw new NotFoundException(__('Invalid subcontractor'));
+		}
+		$options = array('conditions' => array('Subcontractor.' . $this->Subcontractor->primaryKey => $id));
+		$subcontractor = $this->Subcontractor->find('first', $options);
+		$this->set(compact('subcontractor'));
+	}
+
 	public function admin_index() {
 		$this->Subcontractor->recursive = 0;
+		
+		$paginate = array(
+			'conditions' => array(),
+			'order' => array(
+				'Subcontractor.title' => 'asc'
+			),
+			'limit' => 20
+		);
+		
+		if(!empty($this->request->data['Subcontractor']['search'])) {
+			$paginate['conditions'][] = array('OR' => array(
+				'Subcontractor.title LIKE' => '%'.$this->request->data['Subcontractor']['search'].'%',
+				'Subcontractor.notes LIKE' => '%'.$this->request->data['Subcontractor']['search'].'%',
+				'Subcontractor.contact LIKE' => '%'.$this->request->data['Subcontractor']['search'].'%',
+				'Subcontractor.city LIKE' => '%'.$this->request->data['Subcontractor']['search'].'%',
+			));
+		}
+		
+		$this->paginate = $paginate;
+		
 		$this->set('subcontractors', $this->paginate());
 	}
 
