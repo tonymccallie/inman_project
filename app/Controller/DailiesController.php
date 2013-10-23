@@ -25,7 +25,7 @@ class DailiesController extends AppController {
 				),
 			)
 		));
-//die(debug($project));
+
 		if ($this->request->is('post')) {
 			$this->Daily->create();
 

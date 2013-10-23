@@ -56,7 +56,7 @@ var updateWorkforce = function() {
 </script>
 <div class="admin_header">
 	<div class="btn-group pull-right">
-		<?php echo $this->Html->link('<i class="icon-trash"></i> ', array('action' => 'delete', $this->data['Project']['id']), array('escape'=>false,'class'=>'btn'),'Are you sure you want to delete this Project?'); ?>
+		<?php echo $this->Html->link('<i class="icon-trash"></i> ', array('action' => 'delete', $this->data['Daily']['id']), array('escape'=>false,'class'=>'btn'),'Are you sure you want to delete this Project?'); ?>
 	</div>
 	<h3>
 		<i class="icon-edit"></i> Edit Daily Project Report: <?php echo $this->data['Project']['title'] ?>
