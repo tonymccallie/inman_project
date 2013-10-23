@@ -18,9 +18,11 @@ class DailiesController extends AppController {
 			'contain' => array(
 				'Daily' => array(
 					'limit' => 1,
-					'DailySubcontractor'
+					'DailySubcontractor',
+					'order' => array(
+						'Daily.created' => 'desc'
+					)
 				),
-				
 			)
 		));
 //die(debug($project));
