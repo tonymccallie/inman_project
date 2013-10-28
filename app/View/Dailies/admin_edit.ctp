@@ -160,6 +160,25 @@ var updateWorkforce = function() {
 	</div>
 	<div class="row-fluid">
 		<div class="span12">
+			<h4>Pictures</h4>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span3">
+			<?php echo !empty($this->data['Daily']['picture_1'])?$this->Html->image('/uploads/'.$this->data['Daily']['picture_1']):'' ?>
+		</div>
+		<div class="span3">
+			<?php echo !empty($this->data['Daily']['picture_2'])?$this->Html->image('/uploads/'.$this->data['Daily']['picture_2']):'' ?>
+		</div>
+		<div class="span3">
+			<?php echo !empty($this->data['Daily']['picture_3'])?$this->Html->image('/uploads/'.$this->data['Daily']['picture_3']):'' ?>
+		</div>
+		<div class="span3">
+			<?php echo !empty($this->data['Daily']['picture_4'])?$this->Html->image('/uploads/'.$this->data['Daily']['picture_4']):'' ?>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span12">
 			<?php echo $this->Form->input('testing',array('label'=>'Testing performed/results received','class'=>'span12')); ?>
 		</div>
 	</div>
