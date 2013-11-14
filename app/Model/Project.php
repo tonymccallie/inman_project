@@ -6,6 +6,9 @@ class Project extends AppModel {
 		'Daily' => array(
 			'dependent' => true //true = delete child records on delete
 		),
+		'Inspection' => array(
+			'dependent' => true //true = delete child records on delete
+		),
 	);
 
 	

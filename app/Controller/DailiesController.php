@@ -46,6 +46,18 @@ class DailiesController extends AppController {
 			}
 
 			if ($this->Daily->saveAll($this->request->data)) {
+				if(!empty($project['Project']['emails'])) {
+					$emails = explode(',', $project['Project']['emails']);
+					Common::email(array(
+						'to' => $emails,
+						'subject' => 'Daily Report Created',
+						'template' => 'daily',
+						'variables' => array(
+							'project' => $project,
+							'last_id' => $this->Daily->getLastInsertId()
+						)
+					),'');
+				}
 				$this->Session->setFlash('The daily has been saved','success');
 				$this->redirect('/dashboard');
 			} else {

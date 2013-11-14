@@ -12,6 +12,7 @@
 			echo $this->Form->input('id',array());
 			echo $this->Form->input('title',array('class'=>'span12'));
 			echo $this->Form->input('zip',array('class'=>'span12'));
+			echo $this->Form->input('emails',array('class'=>'span12','label'=>'Emails to receive reports: <i>(comma separated)</i>','escape'=>false));
 		echo $this->Form->end(array('label'=>'Save Project','class'=>'btn'));
 	?>
 </div>

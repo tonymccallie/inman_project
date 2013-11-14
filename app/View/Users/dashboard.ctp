@@ -4,7 +4,7 @@
 		<p>Click below to create a new report</p>
 		<div class="btn-group">
 			<?php echo $this->Html->link('New Daily Report','/dailies/add',array('class' => 'btn btn-large btn-primary')) ?>
-			<?php echo $this->Html->link('New OSHA Report','#',array('class' => 'btn btn-large btn-primary')) ?>
+			<?php echo $this->Html->link('New Inspection','/inspections/add',array('class' => 'btn btn-large btn-primary')) ?>
 		</div>
 	</div>
 </div>
