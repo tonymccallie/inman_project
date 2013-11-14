@@ -1,0 +1,2 @@
+<p>A new Inspection has been filled out for <?php echo $project['Project']['title'] ?></p>
+<p><a href="<?php echo Common::currentUrl() ?>admin/inspections/edit/<?php echo $last_id ?>">Click Here to view it</a></p>

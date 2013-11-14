@@ -50,6 +50,18 @@ class InspectionsController extends AppController {
 				}
 			}
 			if ($this->Inspection->saveAll($this->request->data)) {
+				if(!empty($project['Project']['emails'])) {
+					$emails = explode(',', $project['Project']['emails']);
+					Common::email(array(
+						'to' => $emails,
+						'subject' => 'Inspection Created',
+						'template' => 'inspection',
+						'variables' => array(
+							'project' => $project,
+							'last_id' => $this->Inspection->getLastInsertId()
+						)
+					),'');
+				}
 				$this->Session->setFlash('The inspection has been saved','success');
 				$this->redirect('/dashboard');
 			} else {
