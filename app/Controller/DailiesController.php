@@ -6,6 +6,16 @@ class DailiesController extends AppController {
 		$this->set('dailies', $this->paginate());
 	}
 
+	public function view($id = null) {
+		if (!$this->Daily->exists($id)) {
+			throw new NotFoundException(__('Invalid daily'));
+		}
+		$options = array('conditions' => array('Daily.' . $this->Daily->primaryKey => $id));
+		$daily = $this->Daily->find('first', $options);
+		$subcontractors = $this->Daily->DailySubcontractor->Subcontractor->find('list');
+		$this->set(compact('subcontractors','daily'));
+	}
+
 	public function add($project = null) {
 		if(empty($project)) {
 			$this->redirect('/dailies/choose');

@@ -11,7 +11,7 @@
 	$develop = true;
 	if($develop):
 ?>
-	<link rel="stylesheet/less" type="text/css" href="<?php echo $this->webroot ?>css/styles.less" />
+	<link rel="stylesheet/less" type="text/css" href="<?php echo $this->webroot ?>css/styles.less"  />
 	<script type="text/javascript">
 		less = {
 			env: "development", // or "production"
@@ -60,7 +60,7 @@
 
 				<?php echo $this->Html->link($this->Html->image('logo.png'),'/',array('escape'=>false,'class'=>'brand')) ?>
 
-				<div class="nav-collapse collapse pull-right">
+				<div class="hidden-print nav-collapse collapse pull-right">
 					<ul id="menu" class="nav">
 						<li class=""><?php echo $this->Html->link('Home','/') ?></li>
 						<li><?php echo $this->Html->link('Subcontractors','/subcontractors') ?></li>

@@ -1,2 +1,2 @@
 <p>A new Daily Report has been filled out for <?php echo $project['Project']['title'] ?></p>
-<p><a href="<?php echo Common::currentUrl() ?>admin/dailies/edit/<?php echo $last_id ?>">Click Here to view it</a></p>
+<p><a href="<?php echo Common::currentUrl() ?>/dailies/view/<?php echo $last_id ?>">Click Here to view it</a></p>

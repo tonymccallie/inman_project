@@ -1,6 +1,8 @@
 @import "less/bootstrap.less";
 @import "less/greyback-defaults.less";
-@import "less/responsive.less";
+@media screen {
+	@import "less/responsive.less";
+}
 @import "fonts.less";
 
 body {
@@ -77,3 +79,13 @@ body {
 @import "responsive_large.less";
 @import "responsive_tablet.less";
 @import "responsive_phone.less";
+@media print {
+	.visible-print  { display: inherit !important; }
+	.hidden-print   { display: none !important; }
+	a[href]:after {
+		content: none;
+	}
+	#header {
+		position: relative;
+	}
+}
