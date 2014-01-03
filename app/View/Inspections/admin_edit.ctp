@@ -142,13 +142,13 @@ $(document).ready(function() {
 		<?php 
 			$row = 0;
 			foreach($categories as $k => $questions): 
-				if($row == 3) {
+				if($row == 2) {
 					echo '</div><div class="row-fluid">';
 					$row = 0;
 				}
 				$row++;
 		?>
-		<div class="span4">
+		<div class="span6">
 			<h6><?php echo $k ?></h6>
 			<?php foreach($questions as $field => $question): ?>
 				<?php echo $this->ExtendedForm->radio($field,array('label'=>$question,'type'=>'radio','options'=>array(
@@ -196,16 +196,24 @@ $(document).ready(function() {
 	</div>
 	<div class="row-fluid">
 		<div class="span3">
-			<?php echo !empty($this->data['Inspection']['picture_1'])?$this->Html->image('/uploads/'.$this->data['Inspection']['picture_1']):'' ?>
+			<?php echo !empty($this->data['Inspection']['picture_1'])?$this->Html->link($this->Html->image('/uploads/'.$this->data['Inspection']['picture_1']),'/uploads/'.$this->data['Inspection']['picture_1'],array('target'=>'_blank','escape'=>false)):'' ?>
 		</div>
 		<div class="span3">
-			<?php echo !empty($this->data['Inspection']['picture_2'])?$this->Html->image('/uploads/'.$this->data['Inspection']['picture_2']):'' ?>
+			<?php echo !empty($this->data['Inspection']['picture_2'])?$this->Html->link($this->Html->image('/uploads/'.$this->data['Inspection']['picture_2']),'/uploads/'.$this->data['Inspection']['picture_2'],array('target'=>'_blank','escape'=>false)):'' ?>
 		</div>
 		<div class="span3">
-			<?php echo !empty($this->data['Inspection']['picture_3'])?$this->Html->image('/uploads/'.$this->data['Inspection']['picture_3']):'' ?>
+			<?php echo !empty($this->data['Inspection']['picture_3'])?$this->Html->link($this->Html->image('/uploads/'.$this->data['Inspection']['picture_3']),'/uploads/'.$this->data['Inspection']['picture_3'],array('target'=>'_blank','escape'=>false)):'' ?>
 		</div>
 		<div class="span3">
-			<?php echo !empty($this->data['Inspection']['picture_4'])?$this->Html->image('/uploads/'.$this->data['Inspection']['picture_4']):'' ?>
+			<?php echo !empty($this->data['Inspection']['picture_4'])?$this->Html->link($this->Html->image('/uploads/'.$this->data['Inspection']['picture_4']),'/uploads/'.$this->data['Inspection']['picture_4'],array('target'=>'_blank','escape'=>false)):'' ?>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span3">
+			<?php echo !empty($this->data['Inspection']['picture_5'])?$this->Html->link($this->Html->image('/uploads/'.$this->data['Inspection']['picture_5']),'/uploads/'.$this->data['Inspection']['picture_5'],array('target'=>'_blank','escape'=>false)):'' ?>
+		</div>
+		<div class="span3">
+			<?php echo !empty($this->data['Inspection']['picture_6'])?$this->Html->link($this->Html->image('/uploads/'.$this->data['Inspection']['picture_6']),'/uploads/'.$this->data['Inspection']['picture_6'],array('target'=>'_blank','escape'=>false)):'' ?>
 		</div>
 	</div>
 	<?php echo $this->Form->end(array('label'=>'Save Report','class'=>'btn')) ?>

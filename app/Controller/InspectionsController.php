@@ -35,7 +35,7 @@ class InspectionsController extends AppController {
 			$this->Inspection->create();
 
 			$pictures = array(
-				'picture_1','picture_2','picture_3','picture_4'
+				'picture_1','picture_2','picture_3','picture_4','picture_5','picture_6'
 			);
 			
 			foreach($pictures as $picture) {

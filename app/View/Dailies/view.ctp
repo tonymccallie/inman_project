@@ -36,7 +36,7 @@
 			<b><?php echo ($daily['Daily']['weather_delay'])?'Yes':'No' ?></b>
 		</div>
 		<div class="span9">
-			<label>Weather delay description:</label>
+			<label>Affect to critical path:</label>
 			<b><?php echo $daily['Daily']['weather_descr'] ?></b>
 		</div>
 	</div>
@@ -85,16 +85,24 @@
 	</div>
 	<div class="row-fluid">
 		<div class="span3">
-			<?php echo !empty($daily['Daily']['picture_1'])?$this->Html->image('/uploads/'.$daily['Daily']['picture_1']):'' ?>
+			<?php echo !empty($daily['Daily']['picture_1'])?$this->Html->link($this->Html->image('/uploads/'.$daily['Daily']['picture_1']),'/uploads/'.$daily['Daily']['picture_1'],array('target'=>'_blank','escape'=>false)):'' ?>
 		</div>
 		<div class="span3">
-			<?php echo !empty($daily['Daily']['picture_2'])?$this->Html->image('/uploads/'.$daily['Daily']['picture_2']):'' ?>
+			<?php echo !empty($daily['Daily']['picture_2'])?$this->Html->link($this->Html->image('/uploads/'.$daily['Daily']['picture_2']),'/uploads/'.$daily['Daily']['picture_2'],array('target'=>'_blank','escape'=>false)):'' ?>
 		</div>
 		<div class="span3">
-			<?php echo !empty($daily['Daily']['picture_3'])?$this->Html->image('/uploads/'.$daily['Daily']['picture_3']):'' ?>
+			<?php echo !empty($daily['Daily']['picture_3'])?$this->Html->link($this->Html->image('/uploads/'.$daily['Daily']['picture_3']),'/uploads/'.$daily['Daily']['picture_3'],array('target'=>'_blank','escape'=>false)):'' ?>
 		</div>
 		<div class="span3">
-			<?php echo !empty($daily['Daily']['picture_4'])?$this->Html->image('/uploads/'.$daily['Daily']['picture_4']):'' ?>
+			<?php echo !empty($daily['Daily']['picture_4'])?$this->Html->link($this->Html->image('/uploads/'.$daily['Daily']['picture_4']),'/uploads/'.$daily['Daily']['picture_4'],array('target'=>'_blank','escape'=>false)):'' ?>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span3">
+			<?php echo !empty($daily['Daily']['picture_5'])?$this->Html->link($this->Html->image('/uploads/'.$daily['Daily']['picture_5']),'/uploads/'.$daily['Daily']['picture_5'],array('target'=>'_blank','escape'=>false)):'' ?>
+		</div>
+		<div class="span3">
+			<?php echo !empty($daily['Daily']['picture_6'])?$this->Html->link($this->Html->image('/uploads/'.$daily['Daily']['picture_6']),'/uploads/'.$daily['Daily']['picture_6'],array('target'=>'_blank','escape'=>false)):'' ?>
 		</div>
 	</div>
 	<div class="row-fluid">

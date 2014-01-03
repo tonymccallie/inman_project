@@ -3,7 +3,33 @@ App::uses('AppController', 'Controller');
 class DailiesController extends AppController {
 	public function admin_index() {
 		$this->Daily->recursive = 0;
-		$this->set('dailies', $this->paginate());
+		$paginate = array(
+			'conditions' => array()
+		);
+		
+		if(!empty($this->data['Daily']['project'])) {
+			$paginate['conditions'][] = array(
+				'Daily.project_id' => $this->data['Daily']['project']
+			);
+		}
+		
+		if((isset($this->data['Daily']['weather']))&&($this->data['Daily']['weather'] !== "")) {
+			$paginate['conditions'][] = array(
+				'Daily.weather_delay' => $this->data['Daily']['weather']
+			);
+		}
+		if(!empty($this->data['Daily']['date']['month'])) {
+			$paginate['conditions'][] = array(
+				'Daily.report_date >=' => $this->data['Daily']['date']['year'].'-'.$this->data['Daily']['date']['month'].'-01',
+				'Daily.report_date <=' => $this->data['Daily']['date']['year'].'-'.$this->data['Daily']['date']['month'].'-'.date('t',strtotime($this->data['Daily']['date']['year'].'-'.$this->data['Daily']['date']['month'].'-01')),
+			);
+		}
+		
+		$this->paginate = $paginate;
+		
+		$dailies = $this->paginate();
+		$projects = $this->Daily->Project->find('list');
+		$this->set(compact('dailies','projects'));
 	}
 
 	public function view($id = null) {
@@ -40,7 +66,7 @@ class DailiesController extends AppController {
 			$this->Daily->create();
 
 			$pictures = array(
-				'picture_1','picture_2','picture_3','picture_4'
+				'picture_1','picture_2','picture_3','picture_4','picture_5','picture_6'
 			);
 			
 			foreach($pictures as $picture) {

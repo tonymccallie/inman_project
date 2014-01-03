@@ -72,6 +72,7 @@
 								<li><?php echo $this->Html->link('Subcontractors','/admin/subcontractors') ?></li>
 								<li><?php echo $this->Html->link('Daily Reports','/admin/dailies') ?></li>
 								<li><?php echo $this->Html->link('Inspections','/admin/inspections') ?></li>
+								<li><?php echo $this->Html->link('SWPPs','/admin/swpps') ?></li>
 							</ul>
 						</li>
 						<?php endif ?>

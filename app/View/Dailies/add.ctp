@@ -67,7 +67,7 @@ var updateWorkforce = function() {
 	?>
 	<div class="row-fluid">
 		<div class="span6">
-			<?php echo $this->Form->input('report_date',array('class'=>'span4')); ?>
+			<?php echo $this->Form->input('report_date',array('class'=>'span4','maxYear' => date('Y'))); ?>
 		</div>
 	</div>
 	<div class="row-fluid">
@@ -105,7 +105,7 @@ var updateWorkforce = function() {
 			<?php echo $this->ExtendedForm->checkbox('weather_delay',array('label'=>'Weather related delay?','type'=>'checkbox')); ?>
 		</div>
 		<div class="span9">
-			<?php echo $this->Form->input('weather_descr',array('label'=>'If yes, describe','type'=>'text','class'=>'span12')); ?>
+			<?php echo $this->Form->input('weather_descr',array('label'=>'Describe affect to critical path','type'=>'text','class'=>'span12')); ?>
 		</div>
 	</div>
 	<div class="row-fluid">
@@ -173,6 +173,21 @@ var updateWorkforce = function() {
 		</div>
 		<div class="span6">
 			<?php echo $this->Form->input('picture_4',array('type'=>'file')); ?>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<a href="#advanced" class="btn pull-right" data-toggle="collapse"><i class="icon-cog"></i> Add More Pictures?</a>
+	</div>
+	<div id="advanced" class="collapse">
+		<div class="advanced">
+			<div class="row-fluid">
+				<div class="span6">
+					<?php echo $this->Form->input('picture_5',array('type'=>'file')); ?>
+				</div>
+				<div class="span6">
+					<?php echo $this->Form->input('picture_6',array('type'=>'file')); ?>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="row-fluid">

@@ -70,7 +70,7 @@ var updateWorkforce = function() {
 	?>
 	<div class="row-fluid">
 		<div class="span6">
-			<?php echo $this->Form->input('report_date',array('class'=>'span4')); ?>
+			<?php echo $this->Form->input('report_date',array('class'=>'span4','maxYear' => date('Y'))); ?>
 		</div>
 	</div>
 	<div class="row-fluid">
@@ -108,7 +108,7 @@ var updateWorkforce = function() {
 			<?php echo $this->ExtendedForm->checkbox('weather_delay',array('label'=>'Weather related delay?','type'=>'checkbox')); ?>
 		</div>
 		<div class="span9">
-			<?php echo $this->Form->input('weather_descr',array('label'=>'If yes, describe','type'=>'text','class'=>'span12')); ?>
+			<?php echo $this->Form->input('weather_descr',array('label'=>'Describe affect to critical path','type'=>'text','class'=>'span12')); ?>
 		</div>
 	</div>
 	<div class="row-fluid">
@@ -165,16 +165,24 @@ var updateWorkforce = function() {
 	</div>
 	<div class="row-fluid">
 		<div class="span3">
-			<?php echo !empty($this->data['Daily']['picture_1'])?$this->Html->image('/uploads/'.$this->data['Daily']['picture_1']):'' ?>
+			<?php echo !empty($this->data['Daily']['picture_1'])?$this->Html->link($this->Html->image('/uploads/'.$this->data['Daily']['picture_1']),'/uploads/'.$this->data['Daily']['picture_1'],array('target'=>'_blank','escape'=>false)):'' ?>
 		</div>
 		<div class="span3">
-			<?php echo !empty($this->data['Daily']['picture_2'])?$this->Html->image('/uploads/'.$this->data['Daily']['picture_2']):'' ?>
+			<?php echo !empty($this->data['Daily']['picture_2'])?$this->Html->link($this->Html->image('/uploads/'.$this->data['Daily']['picture_2']),'/uploads/'.$this->data['Daily']['picture_2'],array('target'=>'_blank','escape'=>false)):'' ?>
 		</div>
 		<div class="span3">
-			<?php echo !empty($this->data['Daily']['picture_3'])?$this->Html->image('/uploads/'.$this->data['Daily']['picture_3']):'' ?>
+			<?php echo !empty($this->data['Daily']['picture_3'])?$this->Html->link($this->Html->image('/uploads/'.$this->data['Daily']['picture_3']),'/uploads/'.$this->data['Daily']['picture_3'],array('target'=>'_blank','escape'=>false)):'' ?>
 		</div>
 		<div class="span3">
-			<?php echo !empty($this->data['Daily']['picture_4'])?$this->Html->image('/uploads/'.$this->data['Daily']['picture_4']):'' ?>
+			<?php echo !empty($this->data['Daily']['picture_4'])?$this->Html->link($this->Html->image('/uploads/'.$this->data['Daily']['picture_4']),'/uploads/'.$this->data['Daily']['picture_4'],array('target'=>'_blank','escape'=>false)):'' ?>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span3">
+			<?php echo !empty($this->data['Daily']['picture_5'])?$this->Html->link($this->Html->image('/uploads/'.$this->data['Daily']['picture_5']),'/uploads/'.$this->data['Daily']['picture_5'],array('target'=>'_blank','escape'=>false)):'' ?>
+		</div>
+		<div class="span3">
+			<?php echo !empty($this->data['Daily']['picture_6'])?$this->Html->link($this->Html->image('/uploads/'.$this->data['Daily']['picture_6']),'/uploads/'.$this->data['Daily']['picture_6'],array('target'=>'_blank','escape'=>false)):'' ?>
 		</div>
 	</div>
 	<div class="row-fluid">

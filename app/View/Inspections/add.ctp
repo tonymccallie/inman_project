@@ -40,7 +40,7 @@ $(document).ready(function() {
 	?>
 	<div class="row-fluid">
 		<div class="span6">
-			<?php echo $this->Form->input('inspection_date',array('class' => 'span4')); ?>
+			<?php echo $this->Form->input('inspection_date',array('class' => 'span4','maxYear' => date('Y'))); ?>
 		</div>
 	</div>
 	<div class="row-fluid">
@@ -139,13 +139,13 @@ $(document).ready(function() {
 		<?php 
 			$row = 0;
 			foreach($categories as $k => $questions): 
-				if($row == 3) {
+				if($row == 2) {
 					echo '</div><div class="row-fluid">';
 					$row = 0;
 				}
 				$row++;
 		?>
-		<div class="span4">
+		<div class="span6">
 			<h6><?php echo $k ?></h6>
 			<?php foreach($questions as $field => $question): ?>
 				<?php echo $this->ExtendedForm->radio($field,array('label'=>$question,'type'=>'radio','options'=>array(
@@ -204,6 +204,21 @@ $(document).ready(function() {
 		</div>
 		<div class="span6">
 			<?php echo $this->Form->input('picture_4',array('type' => 'file')); ?>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<a href="#advanced" class="btn pull-right" data-toggle="collapse"><i class="icon-cog"></i> Add More Pictures?</a>
+	</div>
+	<div id="advanced" class="collapse">
+		<div class="advanced">
+			<div class="row-fluid">
+				<div class="span6">
+					<?php echo $this->Form->input('picture_5',array('type'=>'file')); ?>
+				</div>
+				<div class="span6">
+					<?php echo $this->Form->input('picture_6',array('type'=>'file')); ?>
+				</div>
+			</div>
 		</div>
 	</div>
 	<?php echo $this->Form->end(array('label' => 'Save Report','class' => 'btn')) ?>
