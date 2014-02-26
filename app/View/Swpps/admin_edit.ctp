@@ -1,6 +1,6 @@
 <div class="admin_header">
 	<h3>
-		<i class="icon-edit"></i> SWPP: <?php echo $project['Project']['title'] ?>
+		<i class="icon-edit"></i> SWPPP: <?php echo $project['Project']['title'] ?>
 	</h3>
 </div>
 <div class="">

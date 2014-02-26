@@ -1,2 +1,2 @@
-<p>A new SWPP has been filled out for <?php echo $project['Project']['title'] ?></p>
+<p>A new SWPPP has been filled out for <?php echo $project['Project']['title'] ?></p>
 <p><a href="<?php echo Common::currentUrl() ?>admin/swpps/edit/<?php echo $last_id ?>">Click Here to view it</a></p>

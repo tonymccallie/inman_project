@@ -1,6 +1,6 @@
 <div class="admin_header">
 	<h3>
-		<i class="icon-edit"></i> SWPP Reports
+		<i class="icon-edit"></i> SWPPP Reports
 		<div class="btn-group pull-right">
 			<?php //echo $this->Html->link('Add Swpp', array('action' => 'add'),array('class'=>'btn','escape'=>false)); ?>
 		</div>
@@ -11,7 +11,7 @@
 		<thead>
 			<tr>
 				<th>
-					<?php echo $this->Paginator->sort('report_date','<i class="icon-sort"></i> SWPP Date',array('escape'=>false)); ?>
+					<?php echo $this->Paginator->sort('report_date','<i class="icon-sort"></i> SWPPP Date',array('escape'=>false)); ?>
 				</th>
 				<th>
 					<?php echo $this->Paginator->sort('project_id','<i class="icon-sort"></i> Project',array('escape'=>false)); ?>
