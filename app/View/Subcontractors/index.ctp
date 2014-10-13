@@ -1,9 +1,11 @@
 <div class="admin_header">
 	<h3>
 		<i class="icon-edit"></i> Subcontractors
+		<?php if(Authsome::get('Role.name') == 'Admin'): ?>
 		<div class="btn-group pull-right">
-			<?php echo $this->Html->link('Add Subcontractor', array('action' => 'add'),array('class'=>'btn','escape'=>false)); ?>
+			<?php echo $this->Html->link('Add Subcontractor', array('action' => 'add','admin'=>true),array('class'=>'btn','escape'=>false)); ?>
 		</div>
+		<?php endif ?>
 	</h3>
 </div>
 <div class="">
