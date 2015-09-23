@@ -167,6 +167,7 @@ class UsersController extends AppController {
 	
 	public function admin_add() {
 		if ($this->request->is('post')) {
+			$this->request->data['User']['verified'] = date('Y-m-d H:i:s');
 			$this->User->create();
 			if ($this->User->save($this->request->data)) {
 				$this->Session->setFlash('The user has been saved','success');
